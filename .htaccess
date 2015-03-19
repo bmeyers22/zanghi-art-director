@@ -1,0 +1,7 @@
+<filesMatch ".(manifest)$">
+ExpiresActive On
+ExpiresDefault "access"
+</FilesMatch>
+
+
+AddType text/cache-manifest .manifest
