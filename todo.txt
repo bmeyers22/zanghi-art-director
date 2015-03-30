@@ -1,0 +1,12 @@
+Re format all project pages DONE
+Change arrow images DONE
+
+
+980 - Project header needs fixing DONE
+510 - Top nav disappears DONE
+	- Copy drops DONE
+	- Bottom Nav shrinks DONE
+	- Top nav, info box grey, centered verdana DONE
+	- Button same grey as streaks in header DONE
+	- Client and credit over the info DONE
+	- Arrows always left and right DONE

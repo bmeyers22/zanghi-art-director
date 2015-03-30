@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html manifest="/app.manifest">
+<!-- <html> -->
+<head>
+	<title>Mark Zanghi - Art Director Portfolio</title>
+	<!-- Iphone stuff -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" /> 	
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+ 	<meta name="apple-mobile-web-app-capable" content="yes" />
+ 	<link rel="apple-touch-icon" href="/img/iphone_icon.png"/>  
+
+ 	<!-- Facebook stuff -->
+	<meta property="og:title" content="Mark Zanghi - Art Director Portfolio" />
+ 	<meta property="og:url" content="" />
+ 	<meta property="og:image" content="" />
+ 	<meta property="og:description" content="Mark Zanghi's Design Portfolio" />
+ 	<link rel="icon" href="/img/favicon.png" type="image/png" />
+	<link rel="stylesheet" type="text/css" href="/css/libs/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="/css/main.min.css" />
+	<script type="text/javascript" src="/js/libs/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="/js/libs/jquery-ui-1.10.2.custom.min.js"></script>
+	<script type="text/javascript" src="/js/libs/underscore-min.js" ></script>
+	<script type="text/javascript" src="/js/libs/backbone-min.js" ></script>
+	<script type="text/javascript" src="/js/libs/bootstrap.min.js" ></script>
+	<script type="text/javascript">
+		var TABLET = true;	
+		var MOBILE = true;	
+	</script>
+	<script type="text/javascript" src="/js/globals.min.js" ></script>
+	<script type="text/javascript" src="/js/Router.min.js" ></script>
+	<script type="text/javascript" src="/js/app.min.js" ></script>
+</head>
+<body>
+	<div id="fb-root"></div>
+	<header>
+		<div class="topbar navbar navbar-inverse navbar-fixed-top" >
+			<div class="headerWrapper">
+				<div class="logo">
+					<a href="#/work"><img src="/img/homeLogo.png" /></a>
+				</div>
+				<div id="fullTopBarLinks">
+					<div class="topbarLinks">
+						<a id="workLink" href="#/work"><img src="/img/workLink.png" /></a>
+						<a id="aboutLink" href="#/about"><img src="/img/aboutLink.png" /></a>
+						<a id="contactLink" href="#/contact"><img src="/img/contactLink.png" /></a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </a>
+				<div class="clearfix"></div>
+			</div>
+			<div id="bottomWrap">
+				
+				<div id="bottomHeaderWrap" class="bottomHeader">
+					<div id="leftBottomHeader" class="bottomFiller">
+					</div>
+					<div class="headerArrowImg">
+						<div id="arrowImgWrapper">
+							<img src="/img/headerArrowImg.png" />
+						</div>
+					</div>
+					<div id="rightBottomHeader" class="bottomFiller">
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div id="smallTopBarLinks" class="nav-collapse collapse">
+			<ul class="nav">
+              <li class="active"><a href="#/work">THE WORK</a></li>
+              <li><a href="#/about">ABOUT</a></li>
+              <li><a href="#/contact">CONTACT</a></li>
+            </ul>
+        </div>
+	</header>
+	<div class="superWrapper">
+		<div id="wrapper">
+		</div>
+	</div>
+	<footer>
+		<div class="footerWrapper">
+			<img id="footerLogo" src="/img/footerLogo.png" />
+		</div>
+	</footer>
+
+	<!-- BEGIN: Underscore Template Definition. -->
+    <script type="text/template" class="work_template">
+	<div class="slideWrapper workSlide">
+		<div id="narrowWrapper">
+			<% _.each(work, function (proj){ %>
+				<% if (proj.id % 3 == 1) { %> 
+					<div class="row workGridRow">
+				<% } %>
+				<div class="span3 workGridItem" >
+					<div class="workGridImages">
+						<a href="#/work/<%- proj.id %>">
+							<img class="workLightBox" src="/img/project_<%- proj.title %>/preview.png" />
+							<img class="workLightBoxGray" src="img/project_<%- proj.title %>/preview_bw.png" />
+						</a>
+					</div>
+				</div>
+				<% if (proj.id % 3 == 0) { %> 
+					</div>
+				<% } %>
+			<% }); %>
+		</div>
+	</div>
+	</script>
+	<!-- BEGIN: Underscore Template Definition. -->
+    <script type="text/template" class="project_template">
+ 
+	<div class="slideWrapper <%- proj.slideTitle %>">
+		<div class="projectWrapper">
+			<div class="projectHeaderWrapper">
+				<div class="projectHeader">
+					<div class="header-column navArrow navArrowLeft projectHeaderNavLeft">
+						<img src="/img/projectArrowLeft.png" />
+					</div>
+					<div class="header-column navArrow navArrowRight projectHeaderNavRight">
+						<img src="/img/projectArrowRight.png" />
+					</div>
+					<div class="header-column-info header-column">
+						<div class="ideaWrap header-column">
+							<div class="ideaHeader headingText">
+								<span>IDEA:</span>
+							</div>
+							<div class="ideaContent">
+								<span class="headingText ideaHeadingText"><%- proj.idea.title %></span><br/>
+								<span class="ideaText"><%- proj.idea.content %></span>
+							</div>
+						</div>
+						<div class="projectInfoWrap header-column">
+							<div class="clientWrap">
+								<div class="clientHeader headingText">
+									<span>CLIENT:</span>
+								</div>
+								<div class="clientLogo">
+									<img src="<%- proj.clientLogo %>" />
+								</div>
+							</div>
+							<div class="creditWrap">
+								<div class="creditHeader headingText">
+									<span>CREDIT:</span>
+								</div>
+								<div class="creditContent">
+									<% _.each(proj.credit, function (credit){ %>
+										<div>
+											<span class="creditTitle"><%- credit.title %> 
+											<% if (credit.title != ' ') { %>-
+												<% } else { %> <span style="visibility:hidden">-</span> 
+												<% } %> </span><span class="creditName"><%- credit.name %></span>
+										</div>
+									<% }); %>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<div class="projectContentWrapper">
+				<div class="projectContent">
+					<% var first = true; %>
+					<% _.each(proj.sections, function (section){ %>
+						<div class="projectSection">
+							<div class="sectionHeaderBorder"></div>
+							<div class="sectionHeader">
+								<span class="headingText"><%- section.title %></span>
+							</div>
+							<div class="sectionImages">
+							<% _.each( section.imgs, function (img){ console.log(first);%>
+								<% if (first) { %>
+								<div class="sectionImg"><img src="<%- proj.imgFolder+img %>" /></div>
+								<% first = false; } else { %>
+									<div class="sectionImg"><img rel="<%- proj.imgFolder+img %>?b=43667" src="<%- proj.imgFolder+img %>" /></div>
+								<% } %>
+							<% }); %>
+							</div>
+						</div>
+					<% }); %>
+				</div>
+			</div>
+			<% if (proj.title != 'train_better') { %>
+			<div class="socialFooter">
+
+				<div class="promoteWrap">
+					<span class="headingText">PROMOTE THIS PAGE</span>
+				</div>
+				
+			</div>
+			<% } %>
+			<div class="projectFooterWrapper">
+				<div class="projectFooterNav">
+					<div class="topArrowWrap">
+						<img class="navArrow" src="/img/arrowUp.png" />
+					</div>
+					<div class="bottomArrowWrap">
+						<div class="bottomNavArrowContainer textLeft"><img class="navArrow navArrowLeft" src="/img/arrowLeft.png" /></div>
+						<a href="#/work"><div class="projectSelectImg"></div></a>
+						<div class="bottomNavArrowContainer textRight"><img class="navArrow navArrowRight" src="/img/arrowRight.png" /></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ 
+    </script>
+    <!-- END: Underscore Template Definition. -->
+	<script id="blankHtml" type="text/x-tmpl">
+    <div class="slideWrapper blankSlide">
+		<div class="aboutWrapper">
+			<div class="aboutPhotoWrapper">
+				<img src="/img/contactPhoto.png" style="visibility:hidden;"/>
+			</div>
+			<div class="aboutNarrowWrapper">
+				<div id="blankMe">
+					<div class="aboutPHeading">CONTACT ME</div>
+					<div class="aboutPar">
+						LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD
+						TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM,
+						QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO
+						CONSEQUAT. DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE
+						CILLUM DOLORE EU FUGIAT NULLA PARIATUR. EXCEPTEUR SINT OCCAECAT CUPIDATAT NON
+						PROIDENT, SUNT IN CULPA QUI OFFICIA DESERUNT MOLLIT ANIM ID EST LABORUM.
+					</div>
+				</div>
+				<div id="blankIcons">
+					<div class="contactIcon" id="phoneIcon">
+						<a href="tel:8606204633"><img src="/img/callIcon.png" /></a>
+					</div>
+					<div class="iconSeperator" style="margin-left:15px;">
+						<img src="/img/iconSeperator.png" />
+					</div>
+					<div class="contactIcon" id="linkedInIcon">
+						<a href="http://www.linkedin.com/pub/mark-zanghi/1a/711/6a9" target="_blank"><img src="/img/linkedInIcon.png" /></a>
+					</div>
+					<div class="contactIcon" id="fbIcon">
+						<a href="https://www.facebook.com/mark.zanghi.14" target="_blank"><img src="/img/fbIcon.png" /></a>
+					</div>
+					<div class="contactIcon" id="twitterIcon">
+						<a href="https://twitter.com/MJZanghi" target="_blank"><img src="/img/twitterIcon.png" /></a>
+					</div>
+					<div class="contactIcon" id="behanceIcon">
+						<a href="http://www.behance.net/markzanghi" target="_blank"><img src="/img/behanceIcon.png" /></a>
+					</div>
+					<div class="iconSeperator" style="margin-left:25px;">
+						<img src="/img/iconSeperator.png" />
+					</div>
+					<div class="contactIcon" id="emailIcon">
+						<a href="mailto:zanghi.mark@gmail.com"><img src="/img/emailIcon.png" /></a>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+	</script>
+	<div id="cachestatus" style="position:fixed;left: 2px;top: 90px; width: 150px;height:18px;color: #ff0000;padding: 1px 3px; opacity:1; z-index:100; font-family:Arial, Helvetica, sans-serif; opacity:0.2;"></div>
+	
+</body>
+</html>
