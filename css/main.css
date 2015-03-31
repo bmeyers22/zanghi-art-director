@@ -400,13 +400,20 @@ header {
 		.sectionHeader .headingText {
 
 		}
-		.sectionImages {
+		.sectionVideo {
+			width: 80%;
+  		margin: 0 auto;
+		}
+		.sectionVideo video {
+			width: 100%;
+		}
+		.sectionImages, .sectionVideos {
 			margin-top: 25px;
 		}
-			.sectionImages .sectionImg {
+			.sectionImages .sectionImg, .sectionVideo {
 				margin-top: 80px;
 			}
-			.sectionImages .sectionImg:first-of-type {
+			.sectionImages .sectionImg:first-of-type, .sectionVideo:first-of-type {
 				margin-top: 0px;
 			}
 			.sectionImages .sectionImg.tile {

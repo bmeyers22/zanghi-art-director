@@ -7,7 +7,7 @@ var author = {
 }
 var PROJECT_ARR = [
 project_breathe_right = {
-	id: 2,
+	id: 3,
 	title: 'breathe_right',
 	idea: {
 		title: 'NOSE NOISE',
@@ -39,7 +39,7 @@ project_breathe_right = {
 	twitterText: "#Snoring ads for @Breathe_Right! Snoring victims need this app too! #portfolio #artdirector @MJZanghi"
 },
 project_universal_studios = {
-	id: 1,
+	id: 2,
 	title: 'universal_studios',
 	idea: {
 		title: 'PART OF THE FAMILY',
@@ -83,7 +83,7 @@ project_universal_studios = {
 	twitterText: "Which Universal Studios character is your favorite? Adorable campaign from Mark's #portfolio #artdirector @MJZanghi"
 },
 project_omaha_steaks = {
-	id: 3,
+	id: 4,
 	title: 'omaha_steaks',
 	idea: {
 		title: 'QUALITY TO YOUR DOOR',
@@ -114,9 +114,9 @@ project_omaha_steaks = {
 	}],
 	twitterText: "#Yum! Tasty funny campaign for Omaha Steaks! Savor them and the rest of Mark's #portfolio #artdirector @MJZanghi"
 },
-project_words_w_friends = {
-	id: 4,
-	title: 'words_w_friends',
+project_basic_talk = {
+	id: 1,
+	title: 'basic_talk',
 	idea: {
 		title: 'PLAY ANYWHERE',
 		content: 'Every letter counts. This real life Words With Friends game turns participants\' worlds into a playing board with no boundaries.'
@@ -137,14 +137,9 @@ project_words_w_friends = {
 		}
 	],
 	sections: [{
-		title: 'GUERRILLA / PEDESTRIAN PARTICIPATION',
-		imgs: ['words_w_friends_sticker_sheet.png','words_w_friends_subway_sign.png','words_w_friends_road_sign.png','words_w_friends_cargo_sign.png','words_w_friends_movie_poster.png']
-	},
-	{
-		title: 'PUBLICITY STUNTS',
-		imgs: ['words_w_friends_road_stunt.png','words_w_friends_hollywood_stunt.png']
-	}],
-	twitterText: "Fun #marketing proving you can play @WordsWFriends anywhere. Value Mark's #portfolio #artdirector @MJZanghi"
+		title: '',
+		videos: ['lights.mp4', 'babies.mp4', 'haircuts.mp4']
+	}]
 },
 project_the_list = {
 	id: 5,

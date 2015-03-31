@@ -227,7 +227,10 @@ if (isset($_REQUEST['p'])) {
 							<div class="sectionHeader">
 								<span class="headingText"><%- section.title %></span>
 							</div>
-							<div class="sectionImages">
+							<div class="sectionVideos">
+							<% _.each( section.videos, function (video){ %>
+								<div class="sectionVideo"><video src="<%- proj.imgFolder+video %>" controls/></div>
+							<% }); %>
 							<% _.each( section.imgs, function (img){ %>
 								<% if (first) { %>
 								<div class="sectionImg"><img src="<%- proj.imgFolder+img %>" /></div>
@@ -240,23 +243,6 @@ if (isset($_REQUEST['p'])) {
 					<% }); %>
 				</div>
 			</div>
-			<% if (proj.title != 'train_better') { %>
-			<div class="socialFooter">
-
-				<div class="promoteWrap">
-					<span class="headingText">PROMOTE THIS PAGE</span>
-				</div>
-				<div class="projectSocialWrap">
-					<div class="fbWrap">
-						<div class="fb-like" data-href="http://www.markzanghi.com/?p=<%- proj.title %>#/work/<%- proj.title %>" data-send="false" data-layout="button_count" data-show-faces="false" data-font="verdana"></div>
-					</div>
-					<div class="twitterWrap">
-						<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.markzanghi.com/#/work/<%- proj.title %>" data-count="http://www.markzanghi.com/#/work/<%- proj.id %>" data-text="<%- proj.twitterText %>">Tweet</a>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</div>
-			<% } %>
 			<div class="projectFooterWrapper">
 				<div class="projectFooterNav">
 					<div class="topArrowWrap">
