@@ -231,6 +231,8 @@ if (isset($_REQUEST['p'])) {
 							<% _.each( section.videos, function (video){ %>
 								<div class="sectionVideo"><video src="<%- proj.imgFolder+video %>" controls/></div>
 							<% }); %>
+							</div>
+							<div class="sectionImages">
 							<% _.each( section.imgs, function (img){ %>
 								<% if (first) { %>
 								<div class="sectionImg"><img src="<%- proj.imgFolder+img %>" /></div>

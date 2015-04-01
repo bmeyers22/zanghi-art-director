@@ -401,7 +401,8 @@ header {
 
 		}
 		.sectionVideo {
-			width: 80%;
+			width: 100%;
+			max-width: 928px;
   		margin: 0 auto;
 		}
 		.sectionVideo video {
